@@ -219,12 +219,13 @@ releases:
   - minio/minio.yml
   - ../config/minio/minio.yml
 
-- name: minio-slow
-  namespace: minio
-  labels:
-    app: minio
-    group: objectstore
-  chart: ./charts/minio
-  values:
-  - minio-slow/minio.yml
-  - ../config/minio-slow/minio.yml
+# ./charts/minio/ needs to be updated to match the above version
+# - name: minio-slow
+#   namespace: minio
+#   labels:
+#     app: minio
+#     group: objectstore
+#   chart: ./charts/minio
+#   values:
+#   - minio-slow/minio.yml
+#   - ../config/minio-slow/minio.yml
