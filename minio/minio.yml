@@ -6,6 +6,10 @@ persistence:
   existingClaim: minio-storage-nfs-volume
   accessMode: ReadWriteMany
 
+securityContext:
+  # Run as root to have write access to the existing data
+  enabled: false
+
 nasgateway:
   enabled: true
   replicas: 1
@@ -27,4 +31,3 @@ ingress:
   - hosts:
     - minio.openmicroscopy.org
     - minio-dev.openmicroscopy.org
-  path: /
