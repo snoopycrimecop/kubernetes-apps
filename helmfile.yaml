@@ -1,7 +1,8 @@
 repositories:
 - name: jupyterhub
   url: https://jupyterhub.github.io/helm-chart/
-
+- name: minio
+  url: https://helm.min.io/
 
 releases:
 
@@ -212,17 +213,19 @@ releases:
   labels:
     app: minio
     group: objectstore
-  chart: ./charts/minio
+  chart: minio/minio
+  version: 8.0.0
   values:
   - minio/minio.yml
   - ../config/minio/minio.yml
 
-- name: minio-slow
-  namespace: minio
-  labels:
-    app: minio
-    group: objectstore
-  chart: ./charts/minio
-  values:
-  - minio-slow/minio.yml
-  - ../config/minio-slow/minio.yml
+# ./charts/minio/ needs to be updated to match the above version
+# - name: minio-slow
+#   namespace: minio
+#   labels:
+#     app: minio
+#     group: objectstore
+#   chart: ./charts/minio
+#   values:
+#   - minio-slow/minio.yml
+#   - ../config/minio-slow/minio.yml
